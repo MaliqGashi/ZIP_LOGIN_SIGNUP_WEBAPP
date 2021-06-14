@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link defer href="css/signup.css" rel="stylesheet" type="text/css">
+
+        <script defer src="jquery.min.js"></script>
+        <script defer src="js/signup.js"></script>
+
+        <title>Signup page</title>
+    </head>
+    <body>
+        <div id="container"> 
+        <div class="alertContainer">
+            <% if (locals.errors) { %>
+                <div class="alertRed">
+                    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                <% if(errors.length == 1) { %>
+                    <h3 style="margin-top: 0px;">Oops, there was an error:</h3>
+                <% } else { %>
+                    <h3 style="margin-top: 0px;">Oops, there were some errors:</h3>
+                <% } %>
+                <% errors.forEach((error_msg, i) => { 
+                     if(i === errors.length -1) { %>
+                        <strong>Error! </strong><%= error_msg %><br>
+                        <% return %> 
+                    <% } %>
+                    <strong>Error! </strong><%= error_msg %>,<br>
+                <% }); %>
+                </div>
+            <% } %>
+        </div>
+            <form action="/signupauth" method="POST">
+                <label for="firstname">Firstname:</label>
+                <input type="text" id="firstname" name="firstname" value="<%= (locals.old_data) ? old_data.firstname : '';%>">
+                <label for="lastname">Lastname:</label>
+                <input type="text" id="lastname" name="lastname" value="<%= (locals.old_data) ? old_data.lastname : '';%>">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" value="<%= (locals.old_data) ? old_data.username : '';%>">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" value="<%= (locals.old_data) ? old_data.password : '';%>">
+                <label for="confpassword">Confirm password:</label>
+                <input type="password" id="confpassword" name="confpassword" value="<%= (locals.old_data) ? old_data.confpassword : '';%>">
+                <div id="lower">
+                    <a href="/login">Login page</a>
+                    <input type="submit" value="Signup">
+                </div>
+            </form>
+        </div>
+    </body>
+</html>

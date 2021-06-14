@@ -1,0 +1,24 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 5432,
+            "driver": "PostgreSQL",
+            "name": "Postgres",
+            "database": "postgres",
+            "username": "postgres",
+            "password": "TheKweb.Miner1"
+        },
+        {
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 5432,
+            "driver": "PostgreSQL",
+            "name": "ZIP",
+            "database": "ZIP",
+            "username": "postgres",
+            "password": "TheKweb.Miner1"
+        }
+    ]
+}

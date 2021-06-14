@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link defer href="css/home.css" rel="stylesheet" type="text/css">
+
+        <script defer src="jquery.min.js"></script>
+        <script defer src="js/home.js"></script>
+
+        <title>Home page</title>
+
+    </head>
+
+    <body>
+        <% if (locals.firstname && locals.lastname) { %>
+            <h1>Welcome <%=firstname%> <%= lastname%>!</h1>
+        <% } %> 
+        <h3><a href="/logout">Logout</a></h3>
+    </body>
+</html>
